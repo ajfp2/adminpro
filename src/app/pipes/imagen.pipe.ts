@@ -9,7 +9,7 @@ export class ImagenPipe implements PipeTransform {
   transform(img: string, tipo: string = 'usuario'): any {
     let url = URL_SERVICIOS + '/img';
     if ( !img ) {
-      return url + '/usuarios/xxx';
+      return url + '/usuarios/xxx2';
     }
 
     if ( img.indexOf('https') >= 0) {
@@ -21,14 +21,14 @@ export class ImagenPipe implements PipeTransform {
         url += '/usuarios/' + img;
       break;
       case 'medico':
-        url += '/medico/' + img;
+        url += '/medicos/' + img;
       break;
       case 'hospital':
-        url += '/hospital/' + img;
+        url += '/hospitales/' + img;
       break;
       default:
-        console.error('ERROR- El tipo de imagen no existe, solo se admite usuarios, medico, hospital.');
-        return url + '/usuarios/xxx';
+        console.error('ERROR- El tipo de imagen no existe, solo se admite usuarios, medicos, hospitales.');
+        return url + '/usuarios/3x';
     }
 
     return url;
