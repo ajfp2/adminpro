@@ -52,7 +52,11 @@ export class LoginComponent implements OnInit {
       return;
     }
     const usuario = new Usuario(null, forma.value.email, forma.value.password);
-    this._us.login( usuario, this.recuerdame ).subscribe( correcto => this.router.navigate(['/dashboard']));
+    this._us.login( usuario, this.recuerdame ).subscribe(
+      correcto => this.router.navigate(['/dashboard']),
+      err => console.error( err ),
+      () => console.log('Petición Login completada.')
+    );
   }
 
 }

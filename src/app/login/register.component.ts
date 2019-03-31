@@ -65,7 +65,11 @@ export class RegisterComponent implements OnInit {
       this.forma.value.correo,
       this.forma.value.password
     );
-    this._us.crearUsuario(usuario).subscribe( resp => this.router.navigate(['/login']));
+    this._us.crearUsuario(usuario).subscribe(
+      resp => this.router.navigate(['/login']),
+      err => console.error( err ),
+      () => console.log('La peticion de registrar usuario ha finalizado correctamente')
+    );
     console.log('Forma Valida', this.forma.valid);
     console.log(this.forma.value);
   }

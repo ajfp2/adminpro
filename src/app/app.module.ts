@@ -9,7 +9,7 @@ import { RegisterComponent } from './login/register.component';
 // Rutas
 import { APP_ROUTES } from './app.routes';
 
-//Servicios
+// Servicios
 import { ServiceModule } from './services/service.module';
 
 // Modulos

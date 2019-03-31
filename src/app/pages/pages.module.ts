@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -27,6 +28,7 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 
@@ -47,7 +49,8 @@ import { MedicoComponent } from './medicos/medico.component';
         ModalUploadComponent,
         HospitalesComponent,
         MedicosComponent,
-        MedicoComponent
+        MedicoComponent,
+        BusquedaComponent
     ],
     exports: [
         DashboardComponent,
@@ -63,7 +66,8 @@ import { MedicoComponent } from './medicos/medico.component';
         PAGES_ROUTES,
         FormsModule,
         ChartsModule,
-        PipesModule
+        PipesModule,
+        HttpModule
     ]
 })
 
