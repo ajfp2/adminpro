@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵgetComponentViewDefinitionFactory } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Http } from '@angular/http';
 import { URL_SERVICIOS } from '../../config/config';
@@ -22,6 +22,24 @@ export class UsuarioService {
 
   usuarioLogeado(): boolean {
     return (this.token !== '') ? true : false;
+  }
+
+  renovarToken() {
+    const url = URL_SERVICIOS + '/login/renuevaToken?token=' + this.token;
+    return this.http.get( url ).pipe(
+      map(resp => {
+        const datos = resp.json();
+        this.token = datos.token;
+        localStorage.setItem('token', this.token);
+        return true;
+      }),
+      catchError(err => {
+        const error = err.json();
+        swal('ERROR RENOVANDO TOKEN', 'No se ha podido renovar el token, haz login de nuevo.', 'error');
+        this.logout();
+        return Observable.throw( error );
+      })
+    );
   }
 
   cargar_storage() {
